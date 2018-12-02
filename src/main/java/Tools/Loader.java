@@ -9,17 +9,13 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Loader {
+public abstract class Loader {
     private File catalog;
     protected List<Files> loadedFiles = new ArrayList<Files>();
 
-    public Loader(String path) {
-        this.catalog = new File(path);
-    }
 
-
-
-    public void load() throws FileNotFoundException {
+    public void load(String path) throws FileNotFoundException {
+        catalog = new File(path);
         String[] files = catalog.list();
         Gson gson = new Gson();
 

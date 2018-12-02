@@ -11,7 +11,7 @@ public class Rubrum {
     List<Judge> judges;
     String text;
 
-    public Rubrum(String signature ,int a,int b, int c, String text) {
+    public Rubrum(String journalTitle ,int journalNo,int journalYear, int journalEntry,String text ) {
 
         this.signature=signature;
 
