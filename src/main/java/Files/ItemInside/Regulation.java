@@ -17,8 +17,9 @@ public class Regulation {
 
 
         if (journalNo == Entries[0] && journalYear == Entries[1] && journalEntry == Entries[2]) {
-            Rubrum sentence = new Rubrum(journalTitle, journalNo, journalYear, journalEntry, text);
-            return "jest";
+            Rubrum sentence = new Rubrum(journalNo, journalYear, journalEntry, text);
+            sentence.save();
+            return sentence.toString();
 
         } else return "Nie ma";
 

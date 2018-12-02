@@ -11,7 +11,7 @@ public class Files {
         for (Item chosenOne : items) {
 
             String alert = chosenOne.searchFor(Entry);
-            if (!alert.equals("Nie ma")) return alert;
+            if (!alert.equals("Nie ma")) return alert + chosenOne.judgesToString();
 
         }
         return "Nie ma";

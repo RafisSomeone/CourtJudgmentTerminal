@@ -8,7 +8,7 @@ public class Judge {
     private List<String> specialRoles;
 
 
-    public String getName() {
+    public String toString() {
         return this.name;
     }
 

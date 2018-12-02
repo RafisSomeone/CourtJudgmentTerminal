@@ -1,5 +1,6 @@
 package Kernel;
 
+import Files.ItemInside.Judge;
 import Tools.EntryConverter;
 import Tools.Researcher;
 
@@ -8,7 +9,7 @@ import java.io.FileNotFoundException;
 public class Main {
 
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public  static void main(String[] args) throws FileNotFoundException {
 
 
         Researcher mole = new Researcher();
@@ -16,12 +17,15 @@ public class Main {
 
 
         EntryConverter hammer = new EntryConverter();
-        int[] Entry = hammer.convert("153/2003");
-        System.out.println(mole.searchFor("153/2003/1503"));
+        int[] Entry = hammer.convert("43/1964/296");
+        System.out.println(mole.searchFor("43/1964/296"));
         // mole.searchFor(new EntryConverter().convert("11/"))
         System.out.println(Entry[0]);
         System.out.println(Entry[1]);
         System.out.println(Entry[2]);
+
+        String out ="MAMA";
+
 
     }
 
