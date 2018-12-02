@@ -1,7 +1,5 @@
 package Files.ItemInside;
 
-import Files.ItemInside.*;
-
 import java.util.List;
 
 public class Item {
@@ -28,17 +26,15 @@ public class Item {
     private String judgmentDate;
 
 
-protected String searchFor(String Entry)
-{
-    for(Regulation chosenOne : referencedRegulations )
-    {
-        String alert = chosenOne.searchFor(Entry);
-        if(!alert.equals("Nie ma"))return alert;
+    protected String searchFor(String Entry) {
+        for (Regulation chosenOne : referencedRegulations) {
+            String alert = chosenOne.searchFor(Entry);
+            if (!alert.equals("Nie ma")) return alert;
+
+        }
+        return "Nie ma";
+
 
     }
-    return "Nie ma";
-
-
-}
 
 }

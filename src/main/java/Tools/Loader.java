@@ -19,17 +19,13 @@ public abstract class Loader {
         String[] files = catalog.list();
         Gson gson = new Gson();
 
-        for (String name: files) {
+        for (String name : files) {
 
 
-            String filePath = this.catalog.getPath() + "\\" +name;
-           loadedFiles.add( gson.fromJson(new FileReader(filePath), Files.class));
+            String filePath = this.catalog.getPath() + "\\" + name;
+            loadedFiles.add(gson.fromJson(new FileReader(filePath), Files.class));
 
             System.out.println(filePath);
-
-
-
-
 
 
         }

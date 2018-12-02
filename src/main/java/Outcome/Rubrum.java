@@ -11,22 +11,21 @@ public class Rubrum {
     List<Judge> judges;
     String text;
 
-    public Rubrum(String journalTitle ,int journalNo,int journalYear, int journalEntry,String text ) {
+    public Rubrum(String journalTitle, int journalNo, int journalYear, int journalEntry, String text) {
 
-        this.signature=signature;
+        this.signature = signature;
 
-        this.text=text;
+        this.text = text;
 
-
-    }
-
-    public String toString(){
-        String out = "Signature: " + signature + "\n"+ "Date: " + date + "\n" + "Court Type: " + courtType + "\n" + "Judges: ";
-    for (Judge judge: judges)
-    {
-        out=out + judge.toString() + " ";
 
     }
+
+    public String toString() {
+        String out = "Signature: " + signature + "\n" + "Date: " + date + "\n" + "Court Type: " + courtType + "\n" + "Judges: ";
+        for (Judge judge : judges) {
+            out = out + judge.toString() + " ";
+
+        }
 
 
         return out;
