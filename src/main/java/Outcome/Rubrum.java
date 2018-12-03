@@ -12,9 +12,10 @@ public class Rubrum {
     private  String courtType;
     private  List<Judge> judges;
     private  String text;
+
     public  Map<String, Rubrum> discoveredRubrums = new LinkedHashMap();
 
-
+    public Rubrum(){}
     public Rubrum(int journalNo, int journalYear, int journalEntry, String text) {
 
         this.signature =journalNo + "/" + journalYear + "/" +journalEntry;
@@ -37,6 +38,16 @@ public class Rubrum {
     }
 
 
+    public Rubrum getFromList(String signature)
+    {
+        return discoveredRubrums.get(signature);
+    }
 
+    public void sendJudges(List<Judge> judges)
+    {
+     this.judges=judges;
+
+
+    }
 
 }

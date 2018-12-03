@@ -56,4 +56,9 @@ protected String judgesToString() {
 
 
 }
+
+    protected List<Judge> getJudges()
+    {
+        return this.judges;
+    }
 }

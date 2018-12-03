@@ -12,4 +12,19 @@ public class Judge {
         return this.name;
     }
 
+    @Override
+    public boolean equals(Object other) {
+        if(this == other) return true;
+        if(!(other instanceof Judge))
+            return false;
+        Judge that = (Judge) other;
+        if(that.name==this.name) return true;
+        return false;
+    }
+    @Override
+    public int hashCode() {
+        int hash = 13;
+
+        return hash;
+    }
 }
