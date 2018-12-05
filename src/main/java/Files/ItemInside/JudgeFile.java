@@ -4,7 +4,7 @@ import Outcome.Rubrum;
 
 import java.util.List;
 
-public class Files {
+public class JudgeFile {
 
     private List<Item> items;
 

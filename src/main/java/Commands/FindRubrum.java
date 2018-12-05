@@ -1,12 +1,9 @@
-package Tools;
+package Commands;
 
-import Files.ItemInside.JudgeFile;
+import Files.ItemInside.JudgeFile ;
+import Tools.Loader;
 
-public class Researcher extends Loader {
-    public Researcher() {
-
-    }
-
+public class FindRubrum extends Loader {
 
     public String searchFor(String Entry) {
         for (JudgeFile chosenOne : loadedFiles) {
@@ -18,5 +15,7 @@ public class Researcher extends Loader {
         return "Nie ma";
 
     }
+
+
 
 }

@@ -1,6 +1,6 @@
 package Tools;
 
-import Files.ItemInside.Files;
+import Files.ItemInside.JudgeFile;
 import com.google.gson.Gson;
 
 import java.io.File;
@@ -11,10 +11,11 @@ import java.util.List;
 
 public abstract class Loader {
     private File catalog;
-    protected List<Files> loadedFiles = new ArrayList<Files>();
+
 
 
     public void load(String path) throws FileNotFoundException {
+        List<JudgeFile> loadedFiles = new ArrayList<JudgeFile>();
         catalog = new File(path);
         String[] files = catalog.list();
         Gson gson = new Gson();
@@ -23,12 +24,14 @@ public abstract class Loader {
 
 
             String filePath = this.catalog.getPath() + "\\" + name;
-            loadedFiles.add(gson.fromJson(new FileReader(filePath), Files.class));
+            loadedFiles.add(gson.fromJson(new FileReader(filePath), JudgeFile.class));
 
             System.out.println(filePath);
 
 
         }
+
+
 
     }
 

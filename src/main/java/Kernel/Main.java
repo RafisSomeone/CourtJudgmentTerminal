@@ -5,11 +5,12 @@ import Tools.EntryConverter;
 import Tools.Researcher;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class Main {
 
 
-    public  static void main(String[] args) throws FileNotFoundException {
+    public  static void main(String[] args) throws IOException {
 
 
         Researcher mole = new Researcher();
@@ -25,6 +26,10 @@ public class Main {
         System.out.println(Entry[2]);
 
         String out ="MAMA";
+
+        TerminalEmulator terminal = new TerminalEmulator();
+
+
 
 
     }
