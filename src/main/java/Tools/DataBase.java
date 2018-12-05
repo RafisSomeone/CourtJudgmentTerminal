@@ -9,13 +9,12 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Loader {
+public abstract class DataBase {
     private File catalog;
-
+    protected List<JudgeFile> loadedFiles = new ArrayList<JudgeFile>();
 
 
     public void load(String path) throws FileNotFoundException {
-        List<JudgeFile> loadedFiles = new ArrayList<JudgeFile>();
         catalog = new File(path);
         String[] files = catalog.list();
         Gson gson = new Gson();
@@ -30,8 +29,6 @@ public abstract class Loader {
 
 
         }
-
-
 
     }
 

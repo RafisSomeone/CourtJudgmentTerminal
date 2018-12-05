@@ -1,15 +1,15 @@
 package Commands;
 
 import Files.ItemInside.JudgeFile ;
-import Tools.Loader;
+import Tools.DataBase;
 
-public class FindRubrum extends Loader {
+public class FindRubrum extends DataBase {
 
     public String searchFor(String Entry) {
         for (JudgeFile chosenOne : loadedFiles) {
 
-            String allert = chosenOne.searchFor(Entry);
-            if (!allert.equals("Nie ma")) return allert;
+            String alert = chosenOne.searchFor(Entry);
+            if (!alert.equals("Nie ma")) return alert;
 
         }
         return "Nie ma";

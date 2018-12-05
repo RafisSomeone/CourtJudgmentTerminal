@@ -2,7 +2,7 @@ package Tools;
 
 import Files.ItemInside.JudgeFile;
 
-public class Researcher extends Loader {
+public class Researcher extends DataBase {
     public Researcher() {
 
     }
