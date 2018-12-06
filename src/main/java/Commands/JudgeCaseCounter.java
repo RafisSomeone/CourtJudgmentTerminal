@@ -5,14 +5,14 @@ import Tools.DataBase;
 
 public class JudgeCaseCounter {
 
-    public int howMany(String name, DataBase base)
+    public String howMany(String name, DataBase base)
     {
         int counter=0;
         for(JudgeFile chosenOne : base.send())
         {
             counter=counter+chosenOne.howMany(name);
         }
-        return counter;
+        return name +" has taken part in " + counter + " judgments";
 
 
 
