@@ -29,7 +29,9 @@ public class Item {
     protected String searchFor(String Entry) {
         for (Regulation chosenOne : referencedRegulations) {
             String alert = chosenOne.searchFor(Entry);
-            if (!alert.equals("Nie ma"))  { return alert;}
+            if (!alert.equals("Nie ma")) {
+                return alert;
+            }
 
         }
         return "Nie ma";
@@ -38,24 +40,21 @@ public class Item {
     }
 
 
+    protected String judgesToString() {
+        String out = "";
+        int i = 0;
+        for (Judge judge : this.judges) {
+            i++;
+            String name = judge.toString();
+            out = out + name;
+            if (i != this.judges.size()) out = out + ", ";
 
-protected String judgesToString() {
-    String out = "";
-    int i=0;
-    for (Judge judge : this.judges) {
-        i++;
-        String name =judge.toString();
-        out = out + name ;
-        if(i!=this.judges.size()) out = out + ", ";
+
+        }
+        return out;
 
 
     }
-    return out;
-
-
-
-
-}
 
     protected List<Judge> getJudges()
     {

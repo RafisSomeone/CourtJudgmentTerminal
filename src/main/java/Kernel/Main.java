@@ -1,10 +1,8 @@
 package Kernel;
 
-import Files.ItemInside.Judge;
 import Tools.EntryConverter;
 import Tools.Researcher;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Main {
@@ -27,7 +25,7 @@ public class Main {
 
         String out ="MAMA";
 
-        TerminalEmulator terminal = new TerminalEmulator();
+        TerminalBuilder terminal = new TerminalBuilder();
 
 
 
