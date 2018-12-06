@@ -1,6 +1,7 @@
 package Kernel;
 
 import Commands.FindContent;
+import Commands.FindMore;
 import Commands.FindRubrum;
 import Tools.Converter;
 import Tools.DataBase;
@@ -17,8 +18,9 @@ try {
     mole.load("C:\\Users\\rafal\\IdeaProjects\\CourtJudgmentTerminal\\src\\main\\resources");
 
 
-    System.out.println(new FindRubrum().searchFor("VIII Ka 797/13", mole));
-    System.out.println(new Converter().clean(new FindContent().searchForContent("VIII Ka 797/13", mole)));
+  //  System.out.println(new FindRubrum().searchFor("VIII Ka 797/13", mole));
+//    System.out.println(new Converter().clean(new FindContent().searchForContent("VIII Ka 797/13", mole)));
+    System.out.println(new FindMore().searchForMore("VIII Ka 797/13,V Pa 51/13,IV CZ 132/13", mole));
 
     String out = "MAMA";
 
