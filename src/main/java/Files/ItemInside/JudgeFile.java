@@ -31,6 +31,15 @@ public class JudgeFile {
 
     }
 
+    public int howMany(String name) {
+        int counter = 0;
+        for (Item chosenOne : items) {
+            counter = counter + chosenOne.howMany(name);
+        }
+        return counter;
+
+
+    }
 
 
 }

@@ -6,12 +6,12 @@ import Tools.DataBase;
 import java.io.FileNotFoundException;
 import java.util.List;
 
-public class FindRubrum extends DataBase {
+public class FindRubrum {
 
     public String searchFor(String Entry, DataBase base) throws FileNotFoundException {
-        List<JudgeFile> loadedFiles = base.send();
 
-        for (JudgeFile chosenOne : loadedFiles) {
+
+        for (JudgeFile chosenOne : base.send()) {
             String wanted = chosenOne.searchFor(Entry);
             if (wanted != null) return wanted;
 

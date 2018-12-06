@@ -69,4 +69,16 @@ public class Item {
     protected List<Judge> getJudges() {
         return this.judges;
     }
+
+    public int howMany(String name) {
+
+        for (Judge chosenOne : judges) {
+            if(name.equals(chosenOne.toString())) return 1;
+        }
+        return 0;
+
+
+    }
+
+
 }
