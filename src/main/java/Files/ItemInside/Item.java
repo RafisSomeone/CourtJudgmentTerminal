@@ -27,14 +27,24 @@ public class Item {
 
 
     protected String searchFor(String Entry) {
-        for (Regulation chosenOne : referencedRegulations) {
-            String alert = chosenOne.searchFor(Entry);
-            if (!alert.equals("Nie ma")) {
-                return alert;
-            }
+        String wanted = courtCases.get(0).getCaseNumber();
+        if (wanted.equals(Entry)) {
+            String rubrum = "Case number: " + wanted;
 
-        }
-        return "Nie ma";
+            rubrum = rubrum + "\n Date:" + judgmentDate + "\n Court type: " + courtType + "\n Jugdes: " + judges.toString();
+
+
+            return rubrum;
+        } else return null;
+
+
+    }
+    protected String searchForContent(String Entry) {
+        String wanted = courtCases.get(0).getCaseNumber();
+        if (wanted.equals(Entry)) {
+
+            return textContent;
+        } else return null;
 
 
     }
@@ -56,8 +66,7 @@ public class Item {
 
     }
 
-    protected List<Judge> getJudges()
-    {
+    protected List<Judge> getJudges() {
         return this.judges;
     }
 }

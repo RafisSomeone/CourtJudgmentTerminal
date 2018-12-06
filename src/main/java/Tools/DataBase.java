@@ -9,9 +9,9 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class DataBase {
+public class DataBase {
     private File catalog;
-    protected List<JudgeFile> loadedFiles = new ArrayList<JudgeFile>();
+    public List<JudgeFile> loadedFiles = new ArrayList<JudgeFile>();
 
 
     public void load(String path) throws FileNotFoundException {
@@ -23,7 +23,12 @@ public abstract class DataBase {
 
 
             String filePath = this.catalog.getPath() + "\\" + name;
-            loadedFiles.add(gson.fromJson(new FileReader(filePath), JudgeFile.class));
+            if(loadedFiles.add(gson.fromJson(new FileReader(filePath), JudgeFile.class)))
+            {
+                loadedFiles.add(gson.fromJson(new FileReader(filePath), JudgeFile.class));
+
+            }
+
 
             System.out.println(filePath);
 
@@ -32,5 +37,10 @@ public abstract class DataBase {
 
     }
 
-}
+    public List<JudgeFile> send(){
+        return loadedFiles;
 
+
+    }
+
+}

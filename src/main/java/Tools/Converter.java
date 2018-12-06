@@ -1,11 +1,11 @@
 package Tools;
 
-public class EntryConverter {
+public class Converter {
 
-    public EntryConverter() {
+    public Converter() {
     }
 
-    public int[] convert(String metrics) {
+    public int[] convert1(String metrics) {
         int[] Entry = new int[3];
         int begin = 0;
         int counter = 0;
@@ -22,6 +22,20 @@ public class EntryConverter {
         Entry[counter] = Integer.parseInt(metrics.substring(begin));
 
         return Entry;
+
+    }
+
+    public String clean(String outCome) {
+        String cleanOutCome = "";
+        int i = 0;
+        while (outCome.length() > i) {
+            if (outCome.charAt(i) != '<') cleanOutCome = cleanOutCome + outCome.charAt(i);
+            else while (outCome.charAt(i) != '>') i++;
+
+            i++;
+        }
+
+        return cleanOutCome;
 
     }
 

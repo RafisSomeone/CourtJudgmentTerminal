@@ -1,36 +1,34 @@
 package Kernel;
 
-import Tools.EntryConverter;
-import Tools.Researcher;
+import Commands.FindContent;
+import Commands.FindRubrum;
+import Tools.Converter;
+import Tools.DataBase;
 
 import java.io.IOException;
 
 public class Main {
 
 
-    public  static void main(String[] args) throws IOException {
+    public static void main(String[] args)  {
+
+try {
+    DataBase mole = new DataBase();
+    mole.load("C:\\Users\\rafal\\IdeaProjects\\CourtJudgmentTerminal\\src\\main\\resources");
 
 
-        Researcher mole = new Researcher();
-        mole.load("C:\\Users\\rafal\\IdeaProjects\\CourtJudgmentTerminal\\src\\main\\resources");
+    System.out.println(new FindRubrum().searchFor("VIII Ka 797/13", mole));
+    System.out.println(new Converter().clean(new FindContent().searchForContent("VIII Ka 797/13", mole)));
 
+    String out = "MAMA";
 
-        EntryConverter hammer = new EntryConverter();
-        int[] Entry = hammer.convert("43/1964/296");
-        System.out.println(mole.searchFor("43/1964/296"));
-        // mole.searchFor(new EntryConverter().convert("11/"))
-        System.out.println(Entry[0]);
-        System.out.println(Entry[1]);
-        System.out.println(Entry[2]);
+    //  TerminalBuilder terminal = new TerminalBuilder();
 
-        String out ="MAMA";
-
-        TerminalBuilder terminal = new TerminalBuilder();
-
-
-
-
-    }
-
+}catch (IOException ex)
+{
+    System.out.println(ex);
 
 }
+    }
+}
+

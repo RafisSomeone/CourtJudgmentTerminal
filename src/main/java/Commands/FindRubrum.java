@@ -1,21 +1,23 @@
 package Commands;
 
-import Files.ItemInside.JudgeFile ;
+import Files.ItemInside.JudgeFile;
 import Tools.DataBase;
+
+import java.io.FileNotFoundException;
+import java.util.List;
 
 public class FindRubrum extends DataBase {
 
-    public String searchFor(String Entry) {
-        for (JudgeFile chosenOne : loadedFiles) {
+    public String searchFor(String Entry, DataBase base) throws FileNotFoundException {
+        List<JudgeFile> loadedFiles = base.send();
 
-            String alert = chosenOne.searchFor(Entry);
-            if (!alert.equals("Nie ma")) return alert;
+        for (JudgeFile chosenOne : loadedFiles) {
+            String wanted = chosenOne.searchFor(Entry);
+            if (wanted != null) return wanted;
 
         }
-        return "Nie ma";
-
+        throw new FileNotFoundException("Metryka " + Entry + " nie istnieje");
     }
-
 
 
 }

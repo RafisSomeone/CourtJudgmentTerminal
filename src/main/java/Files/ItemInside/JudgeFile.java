@@ -1,7 +1,5 @@
 package Files.ItemInside;
 
-import Outcome.Rubrum;
-
 import java.util.List;
 
 public class JudgeFile {
@@ -10,24 +8,29 @@ public class JudgeFile {
 
 
     public String searchFor(String Entry) {
-        for (Item chosenOne : items) {
 
-            String alert = chosenOne.searchFor(Entry);
-            if (!alert.equals("Nie ma")) return alert + chosenOne.judgesToString();
+        for (Item chosenOne : items) {
+            String wanted = chosenOne.searchFor(Entry);
+            if (wanted != null) return wanted;
 
         }
-        return "Nie ma";
-    }
-    public String searchForJudges(String Entry) {
-        for (Item chosenOne : items) {
+        return null;
 
-            String alert = chosenOne.searchFor(Entry);
-            if (!alert.equals("Nie ma")){
-                Rubrum tmp = new Rubrum().getFromList(Entry); tmp.sendJudges(chosenOne.getJudges()); return alert + chosenOne.judgesToString();}
+
+    }
+
+    public String searchForContent(String Entry) {
+
+        for (Item chosenOne : items) {
+            String wanted = chosenOne.searchForContent(Entry);
+            if (wanted != null) return wanted;
 
         }
-        return "Nie ma";
+        return null;
+
+
     }
+
 
 
 }
