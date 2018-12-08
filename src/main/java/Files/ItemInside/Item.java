@@ -6,7 +6,7 @@ public class Item {
     private int id;
     private CourtType courtType;
     private List<Case> courtCases;
-    private String judgmentType;
+    private String JudgmentType;
     private List<Judge> judges;
     private Source source;
     private List<String> courtReporters;

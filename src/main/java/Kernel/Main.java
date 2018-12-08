@@ -19,7 +19,7 @@ try {
    System.out.println(new FindRubrum().searchFor("VIII Ka 797/13", mole));
     //System.out.println(new Converter().clean(new FindContent().searchForContent("VIII Ka 797/13", mole)));
     //System.out.println(new FindMore().searchForMore("VIII Ka 797/13,V Pa 51/13,IV CZ 132/13", mole));
-   //System.out.println(new JudgeCaseCounter().howMany("Anna Miniecka",mole));
+   System.out.println(new JudgeCaseCounter().howMany("Anna Miniecka",mole));
     String out = "MAMA";
 
     //  TerminalBuilder terminal = new TerminalBuilder();

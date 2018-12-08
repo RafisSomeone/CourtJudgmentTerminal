@@ -1,6 +1,6 @@
 package Files.ItemInside;
 
-public enum judgmentType {
+public enum JudgmentType {
     DECISION,
     RESOLUTION,
     SENTENCE,
