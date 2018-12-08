@@ -17,7 +17,7 @@ public class Item {
     private String summary;
     private String textContent;
     private List<String> legalBases;
-    private List<ReferencedRegulation> referencedRegulations;
+    private List<Referenced> referencedRegulations;
     private List<String> keywords;
     private List<Case> referencedCourtCases;
     private String receiptDate;
@@ -129,33 +129,15 @@ public class Item {
 
 
     }
-    public void topRegulation(List<Regulation> regulations)
+    public void topRegulation(List<Regulate> regulations)
     {
-        for(ReferencedRegulation referencedRegulation : referencedRegulations)
+        for(Referenced referenced : referencedRegulations)
         {
-            referencedRegulation.topRegulation(regulations);
+            referenced.topRegulation(regulations);
 
         }
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

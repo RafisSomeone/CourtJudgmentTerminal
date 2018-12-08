@@ -1,6 +1,6 @@
 package tree;
 
-public class JudgeNumber {
+public class JudgeNumber implements Comparable<JudgeNumber>{
 
     int judgeQuantity;
     int counter;
@@ -22,5 +22,12 @@ public class JudgeNumber {
     public void increaseCounter() {
         counter++;
     }
+    @Override
+    public int compareTo(JudgeNumber tmp) {
+        if(this.getJudgeQuantity() == tmp.getJudgeQuantity()) return 0;
+        else if(this.getJudgeQuantity()>tmp.getJudgeQuantity())
+            return 1;
+        else return -1;
 
+    }
 }

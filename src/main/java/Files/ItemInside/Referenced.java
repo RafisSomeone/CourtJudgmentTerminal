@@ -1,10 +1,10 @@
 package Files.ItemInside;
 
-import tree.Regulation;
+import tree.Regulate;
 
 import java.util.List;
 
-public class ReferencedRegulation {
+public class Referenced {
     private String journalTitle;
     private int journalNo;
     private int journalYear;
@@ -12,16 +12,16 @@ public class ReferencedRegulation {
     private String text;
 
 
-public void topRegulation(List<Regulation> regulations)
+public void topRegulation(List<Regulate> regulations)
 {
     String signature=journalNo+"/"+journalYear;
 
-    for(Regulation regulation:regulations)
+    for(Regulate regulation:regulations)
     {
         if(regulation.getSignature().equals(signature)){regulation.increaseCounter();return;}
 
     }
-    regulations.add(new Regulation(signature,1,journalTitle));
+    regulations.add(new Regulate(signature,1,journalTitle));
 }
 
 

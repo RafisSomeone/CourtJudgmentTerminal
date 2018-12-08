@@ -2,7 +2,7 @@ package Commands;
 
 import Files.ItemInside.JudgeFile;
 import Tools.DataBase;
-import tree.Regulation;
+import tree.Regulate;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -13,20 +13,20 @@ public class TopRegulations {
 
 
     public String topRegulation(DataBase base) {
-        List<Regulation> regulations = new LinkedList<>();
+        List<Regulate> regulations = new LinkedList<>();
 
         for (JudgeFile chosenOne : base.getBase()) {
             chosenOne.topRegulation(regulations);
         }
-        Set<Regulation> regulationsSorted = new TreeSet<>();
-        for (Regulation regulation : regulations) {
+        Set<Regulate> regulationsSorted = new TreeSet<>();
+        for (Regulate regulation : regulations) {
             regulationsSorted.add(regulation);
         }
         String outCome = "Top of the Regulations:\nNo    journalNo/Year      Quantity\n";
 
         int top = 10;
         int j = 1;
-        for (Regulation regulation : regulationsSorted) {
+        for (Regulate regulation : regulationsSorted) {
             if (top == 0) return outCome;
             top--;
             outCome += j + ".  ";

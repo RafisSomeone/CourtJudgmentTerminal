@@ -74,7 +74,7 @@ public class JudgeFile {
         }
     }
 
-    public void topRegulation(List<Regulation> regulations)
+    public void topRegulation(List<Regulate> regulations)
     {
         for(Item item:items)
         {

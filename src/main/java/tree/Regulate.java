@@ -1,10 +1,10 @@
 package tree;
 
-public class Regulation implements Comparable<Regulation> {
+public class Regulate implements Comparable<Regulate> {
     private String signature;
     private int counter;
     private String title;
-    public Regulation(String signature, int counter,String title) {
+    public Regulate(String signature, int counter, String title) {
         this.signature =signature ;
         this.counter = counter;
         this.title=title;
@@ -27,7 +27,7 @@ public class Regulation implements Comparable<Regulation> {
     }
 
     @Override
-    public int compareTo(Regulation tmp) {
+    public int compareTo(Regulate tmp) {
         if(this.getSignature() == tmp.getSignature()) return 0;
         else if(this.getCounter()>tmp.getCounter())
             return -1;
