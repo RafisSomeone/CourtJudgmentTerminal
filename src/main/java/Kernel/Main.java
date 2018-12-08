@@ -1,6 +1,7 @@
 package Kernel;
 
 import Commands.StatisticCourt;
+import Commands.StatisticJudges;
 import Commands.StatisticSentence;
 import Commands.TopRegulations;
 import Tools.DataBase;
@@ -15,7 +16,8 @@ public class Main {
         try {
             DataBase mole = new DataBase();
             mole.load("C:\\Users\\rafal\\IdeaProjects\\CourtJudgmentTerminal\\src\\main\\resources");
-            System.out.println(new TopRegulations().topRegulation(mole));
+            System.out.println(new StatisticJudges().statisctic(mole));
+            //  System.out.println(new TopRegulations().topRegulation(mole));
   //          System.out.println(new StatisticSentence().statistic(mole));
         //    System.out.println(new StatisticCourt().statistic(mole));
             //  System.out.println(new TopJudges().top10(mole));

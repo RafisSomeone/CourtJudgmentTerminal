@@ -1,9 +1,6 @@
 package Files.ItemInside;
 
-import tree.Court;
-import tree.JudgeValue;
-import tree.Month;
-import tree.Regulation;
+import tree.*;
 
 import java.util.List;
 import java.util.Set;
@@ -86,5 +83,11 @@ public class JudgeFile {
     }
 
 
+    public void statisticJudges(List<JudgeNumber> judgeNumbers) {
+        for(Item item:items)
+        {
+            item.statisticJudges(judgeNumbers);
+        }
+    }
 }
 

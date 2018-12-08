@@ -1,9 +1,6 @@
 package Files.ItemInside;
 
-import tree.Court;
-import tree.JudgeValue;
-import tree.Month;
-import tree.Regulation;
+import tree.*;
 
 import java.util.List;
 import java.util.Set;
@@ -144,4 +141,32 @@ public class Item {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public void statisticJudges(List<JudgeNumber> judgeNumbers) {
+
+        for(JudgeNumber number : judgeNumbers)
+        {
+            if(number.getJudgeQuantity()==judges.size()){number.increaseCounter();return;}
+
+        }
+        judgeNumbers.add(new JudgeNumber(judges.size(),1));
+    }
 }
