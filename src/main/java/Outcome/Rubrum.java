@@ -1,22 +1,22 @@
 package Outcome;
 
-import Files.ItemInside.String;
+import Files.ItemInside.Judge;
 
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 public class Rubrum {
-    private java.lang.String signature;
-    private java.lang.String date;
-    private java.lang.String courtType;
-    private  List<String> strings;
-    private java.lang.String text;
+    private  String signature;
+    private  String date;
+    private  String courtType;
+    private  List<Judge> judges;
+    private  String text;
 
-    public  Map<java.lang.String, Rubrum> discoveredRubrums = new LinkedHashMap();
+    public  Map<String, Rubrum> discoveredRubrums = new LinkedHashMap();
 
     public Rubrum(){}
-    public Rubrum(int journalNo, int journalYear, int journalEntry, java.lang.String text) {
+    public Rubrum(int journalNo, int journalYear, int journalEntry, String text) {
 
         this.signature =journalNo + "/" + journalYear + "/" +journalEntry;
         this.text = text;
@@ -24,8 +24,8 @@ public class Rubrum {
 
     }
 
-    public java.lang.String toString() {
-        java.lang.String out = "Signature: " + signature + "\n" + "Date: " + date + "\n" + "Court Type: " + courtType + "\n" + "Judges: ";
+    public String toString() {
+        String out = "Signature: " + signature + "\n" + "Date: " + date + "\n" + "Court Type: " + courtType + "\n" + "Judges: ";
 
         return out;
 
@@ -38,14 +38,14 @@ public class Rubrum {
     }
 
 
-    public Rubrum getFromList(java.lang.String signature)
+    public Rubrum getFromList(String signature)
     {
         return discoveredRubrums.get(signature);
     }
 
-    public void sendJudges(List<String> strings)
+    public void sendJudges(List<Judge> judges)
     {
-     this.strings = strings;
+     this.judges=judges;
 
 
     }
