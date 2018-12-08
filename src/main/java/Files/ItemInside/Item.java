@@ -4,34 +4,34 @@ import java.util.List;
 
 public class Item {
     private int id;
-    private String courtType;
+    private CourtType courtType;
     private List<Case> courtCases;
-    private String judgmentType;
-    private List<Judge> judges;
+    private java.lang.String judgmentType;
+    private List<String> strings;
     private Source source;
-    private List<String> courtReporters;
-    private String decision;
-    private String summary;
-    private String textContent;
-    private List<String> legalBases;
+    private List<java.lang.String> courtReporters;
+    private java.lang.String decision;
+    private java.lang.String summary;
+    private java.lang.String textContent;
+    private List<java.lang.String> legalBases;
     private List<Regulation> referencedRegulations;
-    private List<String> keywords;
+    private List<java.lang.String> keywords;
     private List<Case> referencedCourtCases;
-    private String receiptDate;
-    private String meansOfAppeal;
-    private String judgmentResult;
+    private java.lang.String receiptDate;
+    private java.lang.String meansOfAppeal;
+    private java.lang.String judgmentResult;
     private Division division;
-    private List<String> lowerCourtJudgments;
-    private List<String> dissentingOpinions;
-    private String judgmentDate;
+    private List<java.lang.String> lowerCourtJudgments;
+    private List<Opinion> dissentingOpinions;
+    private java.lang.String judgmentDate;
 
 
-    protected String searchFor(String Entry) {
-        String wanted = courtCases.get(0).getCaseNumber();
+    protected java.lang.String searchFor(java.lang.String Entry) {
+        java.lang.String wanted = courtCases.get(0).getCaseNumber();
         if (wanted.equals(Entry)) {
-            String rubrum = "Case number: " + wanted;
+            java.lang.String rubrum = "Case number: " + wanted;
 
-            rubrum = rubrum + "\n Date:" + judgmentDate + "\n Court type: " + courtType + "\n Jugdes: " + judges.toString();
+           rubrum = rubrum + "\n Date:" + judgmentDate + "\n Court type: " + courtType.toString() + "\n Jugdes: " + strings.toString();
 
 
             return rubrum;
@@ -39,8 +39,8 @@ public class Item {
 
 
     }
-    protected String searchForContent(String Entry) {
-        String wanted = courtCases.get(0).getCaseNumber();
+    protected java.lang.String searchForContent(java.lang.String Entry) {
+        java.lang.String wanted = courtCases.get(0).getCaseNumber();
         if (wanted.equals(Entry)) {
 
             return textContent;
@@ -50,14 +50,14 @@ public class Item {
     }
 
 
-    protected String judgesToString() {
-        String out = "";
+    protected java.lang.String judgesToString() {
+        java.lang.String out = "";
         int i = 0;
-        for (Judge judge : this.judges) {
+        for (String string : this.strings) {
             i++;
-            String name = judge.toString();
+            java.lang.String name = string.toString();
             out = out + name;
-            if (i != this.judges.size()) out = out + ", ";
+            if (i != this.strings.size()) out = out + ", ";
 
 
         }
@@ -66,13 +66,13 @@ public class Item {
 
     }
 
-    protected List<Judge> getJudges() {
-        return this.judges;
+    protected List<String> getStrings() {
+        return this.strings;
     }
 
-    public int howMany(String name) {
+    public int howMany(java.lang.String name) {
 
-        for (Judge chosenOne : judges) {
+        for (String chosenOne : strings) {
             if(name.equals(chosenOne.toString())) return 1;
         }
         return 0;
