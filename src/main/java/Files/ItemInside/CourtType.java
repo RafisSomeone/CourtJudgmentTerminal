@@ -5,7 +5,8 @@ public enum CourtType {
     SUPREME,
     ADMINISTRATIVE,
     CONSTITUTIONAL_TRIBUNAL,
-    NATIONAL_APPEAL_CHAMBER;
+    NATIONAL_APPEAL_CHAMBER,
+    ALL;
 
     @Override
     public String toString() {
@@ -21,6 +22,8 @@ public enum CourtType {
                 return   "Constitutional Triblunal";
             case NATIONAL_APPEAL_CHAMBER:
                 return   "National Appeal Chamber";
+            case ALL:
+                return "Total";
             default:
                 return  "";
 

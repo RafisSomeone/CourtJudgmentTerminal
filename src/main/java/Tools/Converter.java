@@ -5,7 +5,7 @@ public class Converter {
     public Converter() {
     }
 
-    public int[] convert1(String metrics) {
+    public int[] convert(String metrics) {
         int[] Entry = new int[3];
         int begin = 0;
         int counter = 0;

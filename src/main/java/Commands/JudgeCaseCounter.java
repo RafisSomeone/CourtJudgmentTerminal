@@ -8,7 +8,8 @@ public class JudgeCaseCounter {
     public String howMany(String name, DataBase base)
     {
         int counter=0;
-        for(JudgeFile chosenOne : base.send())
+
+        for(JudgeFile chosenOne : base.getBase())
         {
             counter=counter+chosenOne.howMany(name);
         }

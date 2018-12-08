@@ -18,7 +18,7 @@ public enum JudgmentType {
             case SENTENCE:
                 return   "Sentence";
             case REGULATION:
-                return   "Regulation";
+                return   "referencedRegulation";
             case REASONS:
                 return   "Reasons";
             default:

@@ -23,11 +23,10 @@ public class DataBase {
 
 
             String filePath = this.catalog.getPath() + "\\" + name;
-            if(loadedFiles.add(gson.fromJson(new FileReader(filePath), JudgeFile.class)))
-            {
+
                 loadedFiles.add(gson.fromJson(new FileReader(filePath), JudgeFile.class));
 
-            }
+
 
 
             System.out.println(filePath);
@@ -37,7 +36,7 @@ public class DataBase {
 
     }
 
-    public List<JudgeFile> send(){
+    public List<JudgeFile> getBase(){
         return loadedFiles;
 
 

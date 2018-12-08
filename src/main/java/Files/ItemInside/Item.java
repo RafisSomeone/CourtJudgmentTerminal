@@ -1,12 +1,18 @@
 package Files.ItemInside;
 
+import tree.Court;
+import tree.JudgeValue;
+import tree.Month;
+import tree.Regulation;
+
 import java.util.List;
+import java.util.Set;
 
 public class Item {
     private int id;
     private CourtType courtType;
     private List<Case> courtCases;
-    private String JudgmentType;
+    private JudgmentType judgmentType;
     private List<Judge> judges;
     private Source source;
     private List<String> courtReporters;
@@ -14,7 +20,7 @@ public class Item {
     private String summary;
     private String textContent;
     private List<String> legalBases;
-    private List<Regulation> referencedRegulations;
+    private List<ReferencedRegulation> referencedRegulations;
     private List<String> keywords;
     private List<Case> referencedCourtCases;
     private String receiptDate;
@@ -55,7 +61,7 @@ public class Item {
         int i = 0;
         for (Judge judge : this.judges) {
             i++;
-            String name = judge.toString();
+            String name = judge.getName();
             out = out + name;
             if (i != this.judges.size()) out = out + ", ";
 
@@ -73,12 +79,69 @@ public class Item {
     public int howMany(String name) {
 
         for (Judge chosenOne : judges) {
-            if(name.equals(chosenOne.toString())) return 1;
+            if(name.equals(chosenOne.getName())) {  return 1;
+               }
         }
         return 0;
 
 
     }
+    public void top (Set<JudgeValue> judgeValues)
+    {
+        for(Judge chosenOne : judges)
+        {
+          boolean flag = false;
+            for(JudgeValue value:judgeValues)
+            {
+                if(value.getName().equals(chosenOne.getName()))
+                {
+                    flag=true;
+                    value.increaseCounter();
+                    break;
+                }
+            }
+            if(flag==false)judgeValues.add(new JudgeValue(chosenOne.getName(),1));
+
+        }
+    }
+
+    public void statisticSentence(List<Month> year )
+    {
+        if(judgmentType.equals(JudgmentType.SENTENCE))// tylko dla wyroków w razie potrzeby wyniku dla wyroków usunąć ifa
+        {
+            int month =(judgmentDate.charAt(5)-48)*10+judgmentDate.charAt(6)-48-1;
+            year.get(month).increaseCounter();
+            year.get(12).increaseCounter();
+
+        }
+
+
+    }
+    public void statisticCourt(List<Court> courts )
+    {
+       if(judgmentType.equals(JudgmentType.SENTENCE))// tylko dla wyroków w razie potrzeby wyniku dla wyroków usunąć ifa
+        {
+
+            for(Court court:courts)
+            {
+                if(court.getType().equals(courtType))court.increaseCounter();
+            }
+            courts.get(5).increaseCounter();
+
+        }
+
+
+    }
+    public void topRegulation(List<Regulation> regulations)
+    {
+        for(ReferencedRegulation referencedRegulation : referencedRegulations)
+        {
+            referencedRegulation.topRegulation(regulations);
+
+        }
+
+    }
+
 
 
 }
