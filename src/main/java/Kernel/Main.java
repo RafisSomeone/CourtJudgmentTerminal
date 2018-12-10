@@ -1,6 +1,9 @@
 package Kernel;
 
 
+import Commands.StatisticJudges;
+import Commands.TopRegulations;
+import Tools.DataBase;
 import org.jline.reader.LineReader;
 import org.jline.reader.LineReaderBuilder;
 
@@ -17,6 +20,16 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
+
+        DataBase mole = new DataBase();
+         mole.load("C:\\Users\\rafal\\IdeaProjects\\CourtJudgmentTerminal\\src\\main\\resources");
+         System.out.println(new StatisticJudges().statistic(mole));
+        System.out.println(new TopRegulations().topRegulation(mole));
+
+
+
+
+        /*
       String prompt = "prompt> ";
       Terminal terminal = TerminalBuilder.builder()
               .system(true)
@@ -34,7 +47,7 @@ String line ;
             if(line=="asd") System.out.println("FSAF");
 
         }
-/*        try {
+       try {
 
             //DataBase mole = new DataBase();
           //  mole.load("C:\\Users\\rafal\\IdeaProjects\\CourtJudgmentTerminal\\src\\main\\resources");
@@ -63,7 +76,7 @@ String line ;
                 }
 
             }
-                //  System.out.println(new TopRegulations().topRegulation(mole));
+                //
                 //          System.out.println(new StatisticSentence().statistic(mole));
                 //    System.out.println(new StatisticCourt().statistic(mole));
                 //  System.out.println(new TopJudges().top10(mole));

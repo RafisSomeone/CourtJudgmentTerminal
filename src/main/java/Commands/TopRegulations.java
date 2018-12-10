@@ -22,7 +22,7 @@ public class TopRegulations {
         for (Regulate regulation : regulations) {
             regulationsSorted.add(regulation);
         }
-        String outCome = "Top of the Regulations:\nNo    journalNo/Year      Quantity\n";
+        String outCome = "Top of the Regulations:\nNo    journalNo/Year      Quantity     Title\n";
 
         int top = 10;
         int j = 1;
@@ -33,7 +33,9 @@ public class TopRegulations {
             for(int i=3-(int) (Math.log10(j) + 1);i>0;i--)outCome+=" ";
             outCome += regulation.getSignature();
             for (int i = (20 - regulation.getSignature().length()); i > 0; i--) outCome += " ";
-            outCome += regulation.getCounter() + "\n"; // by poznać tytuł regulacji +regulation.getTitle()
+            outCome += regulation.getCounter();
+            for(int i =13- (int) (Math.log10(regulation.getCounter()) + 1);i>0;i--) outCome+=" ";
+               outCome+=regulation.getTitle() + "\n"; // by poznać tytuł regulacji +regulation.getTitle()
             j++;
         }
 
