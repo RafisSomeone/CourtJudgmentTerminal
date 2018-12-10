@@ -104,20 +104,18 @@ public class Item {
 
     public void statisticSentence(List<Month> year )
     {
-        if(judgmentType.equals(JudgmentType.SENTENCE))// tylko dla wyroków w razie potrzeby wyniku dla wyroków usunąć ifa
-        {
+
             int month =(judgmentDate.charAt(5)-48)*10+judgmentDate.charAt(6)-48-1;
             year.get(month).increaseCounter();
             year.get(12).increaseCounter();
 
-        }
+
 
 
     }
     public void statisticCourt(List<Court> courts )
     {
-       if(judgmentType.equals(JudgmentType.SENTENCE))// tylko dla wyroków w razie potrzeby wyniku dla wyroków usunąć ifa
-        {
+
 
             for(Court court:courts)
             {
@@ -125,7 +123,7 @@ public class Item {
             }
             courts.get(5).increaseCounter();
 
-        }
+
 
 
     }
