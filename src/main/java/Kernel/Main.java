@@ -9,6 +9,7 @@ import org.jline.terminal.TerminalBuilder;
 
 
 import java.io.IOException;
+import java.util.Scanner;
 
 
 public class Main {
@@ -26,9 +27,13 @@ public class Main {
               .build();
 
 String line ;
-line = lineReader.readLine(prompt);
 
 
+        while (true) {
+            line = lineReader.readLine(prompt);
+            if(line=="asd") System.out.println("FSAF");
+
+        }
 /*        try {
 
             //DataBase mole = new DataBase();
@@ -45,7 +50,7 @@ line = lineReader.readLine(prompt);
             LineReader reader = LineReaderBuilder.builder()
                     .terminal(terminal)
                     .build();
-            while (true) {
+
                 String line = null;
                 try {
                     line = reader.readLine(prompt);
