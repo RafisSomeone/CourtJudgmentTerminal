@@ -3,6 +3,7 @@ package Tools;
 import Files.ItemInside.CourtType;
 import Files.ItemInside.Item;
 import Files.ItemInside.Judge;
+import Files.ItemInside.Referenced;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -17,6 +18,7 @@ import java.util.List;
 public class HtmlParser {
 
     public void html(String path) throws IOException {
+
 
 
         File catalog = new File(path);
@@ -99,6 +101,10 @@ public class HtmlParser {
                 textContent+=oneVerse.text()+'\n';
             }
 
+            //referencedRegulations
+            List<Referenced> referencedRegulationsList = new LinkedList<>();
+            Elements referencedRegulations = doc.select("tr.niezaznaczona:nth-child(9) > td:nth-child(2)") ;
+
 
 
             Html newHtml = new HtmlBuilder()
@@ -109,6 +115,7 @@ public class HtmlParser {
                     .setTextContent(textContent)
                     .build();
 
+            items.add(newHtml.htmlToItems());
 
             System.out.println("AS");
 

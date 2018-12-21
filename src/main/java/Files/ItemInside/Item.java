@@ -29,6 +29,20 @@ public class Item {
     private String judgmentDate;
 
 
+    public Item(CourtType courtType,List<Case> courtCases,List<Judge> judges,String textContent,List<Referenced> referencedRegulations,String judgmentDate){
+
+
+
+
+     this.courtType=courtType;
+       this.courtCases=courtCases;
+        this.judges=judges;
+       this.textContent=textContent;
+         this.referencedRegulations=referencedRegulations;
+         this.judgmentDate=judgmentDate;
+
+    }
+
     protected String searchFor(String Entry) {
         String wanted = courtCases.get(0).getCaseNumber();
         if (wanted.equals(Entry)) {

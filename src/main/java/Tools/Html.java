@@ -1,9 +1,6 @@
 package Tools;
 
-import Files.ItemInside.Case;
-import Files.ItemInside.CourtType;
-import Files.ItemInside.Judge;
-import Files.ItemInside.Referenced;
+import Files.ItemInside.*;
 
 import java.util.List;
 
@@ -22,5 +19,12 @@ public class Html {
         this.textContent = textContent;
         this.referencedRegulations = referencedRegulations;
         this.judgmentDate = judgmentDate;
+    }
+
+    public Item htmlToItems(){
+
+        return new Item(this.courtType,this.courtCases,this.judges,this.textContent,this.referencedRegulations,this.judgmentDate);
+
+
     }
 }

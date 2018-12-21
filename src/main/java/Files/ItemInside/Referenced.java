@@ -11,6 +11,10 @@ public class Referenced {
     private int journalEntry;
     private String text;
 
+    public Referenced(String journalTitle){
+        this.journalTitle=journalTitle;
+    }
+
 
 public void topRegulation(List<Regulate> regulations)
 {
