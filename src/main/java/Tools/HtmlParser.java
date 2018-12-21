@@ -1,14 +1,12 @@
 package Tools;
 
-import Files.ItemInside.CourtType;
-import Files.ItemInside.Item;
-import Files.ItemInside.Judge;
-import Files.ItemInside.Referenced;
+import Files.ItemInside.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import javax.xml.crypto.Data;
 import java.io.File;
 import java.io.IOException;
 import java.util.LinkedList;
@@ -17,15 +15,16 @@ import java.util.List;
 
 public class HtmlParser {
 
-    public void html(String path) throws IOException {
+    public void html(String path, DataBase base) throws IOException {
 
 
 
         File catalog = new File(path);
         String[] files = catalog.list();
         System.out.println(path);
+        List<Item> items = new LinkedList<>();
         for (String name : files) {
-            List<Item> items = new LinkedList<>();
+
 
 
             String filePath = catalog.getPath() + "/" + name;
@@ -103,7 +102,17 @@ public class HtmlParser {
 
             //referencedRegulations
             List<Referenced> referencedRegulationsList = new LinkedList<>();
-            Elements referencedRegulations = doc.select("tr.niezaznaczona:nth-child(9) > td:nth-child(2)") ;
+            Elements referencedRegulations = doc.select("span.nakt");
+            for(Element regulation : referencedRegulations)
+            {   String cleanRegulation= regulation.text();
+                if(cleanRegulation.contains("tekst jednolity")) cleanRegulation=cleanRegulation.substring(0,cleanRegulation.indexOf("tekst jednolity"));
+
+                int lastChar=cleanRegulation.length()-1;
+                while(cleanRegulation.charAt(lastChar)==' ' || cleanRegulation.charAt(lastChar)=='-'){cleanRegulation=cleanRegulation.substring(0,lastChar); lastChar=cleanRegulation.length()-1;}
+                referencedRegulationsList.add(new Referenced(cleanRegulation));
+            }
+
+
 
 
 
@@ -113,13 +122,15 @@ public class HtmlParser {
                     .setCourtType(type)
                     .setJudges(judgesList)
                     .setTextContent(textContent)
+                    .setReferencedRegulations(referencedRegulationsList)
                     .build();
 
             items.add(newHtml.htmlToItems());
 
-            System.out.println("AS");
+
 
         }
+        base.addToBase(new JudgeFile(items));
     }
 
 }

@@ -17,9 +17,9 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException {
+        DataBase mole = new DataBase();
+    new HtmlParser().html("/home/rafal/Dokumenty/intellij/IdeaProjects-20181219T161811Z-001/IdeaProjects/CourtJudgmentTerminal/src/main/resources/html",mole);
 
-    new HtmlParser().html("/home/rafal/Dokumenty/intellij/IdeaProjects-20181219T161811Z-001/IdeaProjects/CourtJudgmentTerminal/src/main/resources/html");
-    DataBase mole = new DataBase();
     mole.load("/home/rafal/Dokumenty/intellij/IdeaProjects-20181219T161811Z-001/IdeaProjects/CourtJudgmentTerminal/src/main/resources/json");
         System.out.println(new FindRubrum().searchFor("XV Ca 543/14", mole));
         System.out.println(new FindContent().searchForContent("XV Ca 543/14",mole));

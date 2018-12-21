@@ -9,6 +9,11 @@ public class JudgeFile {
 
     private List<Item> items;
 
+    public JudgeFile(List<Item> items){
+        this.items=items;
+
+    }
+
 
     public String searchFor(String Entry) {
 
