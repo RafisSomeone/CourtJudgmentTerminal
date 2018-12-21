@@ -34,7 +34,17 @@ public class Item {
         if (wanted.equals(Entry)) {
             String rubrum = "Case number: " + wanted;
 
-            rubrum = rubrum + "\n Date:" + judgmentDate + "\n Court type: " + courtType.toString() + "\n Jugdes: " + judges.toString();
+            rubrum = rubrum + "\nDate:" + judgmentDate + "\nCourt type: " + courtType.toString() + "\nJugdes: " ;
+            int i=0;
+            for(Judge judge : judges)
+            {
+                if(i!=0)rubrum+="        ";
+                rubrum+=judge.getName();
+                if(judge.getSpecialRoles()!=null)rubrum+=" jako "+ judge.getSpecialRoles();
+                rubrum+="\n";
+                i++;
+
+            }
 
 
             return rubrum;
@@ -87,6 +97,7 @@ public class Item {
     {
         for(Judge chosenOne : judges)
         {
+
           boolean flag = false;
             for(JudgeValue value:judgeValues)
             {
@@ -148,5 +159,6 @@ public class Item {
 
         }
         judgeNumbers.add(new JudgeNumber(judges.size(),1));
+
     }
 }
