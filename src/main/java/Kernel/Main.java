@@ -1,9 +1,8 @@
 package Kernel;
 
 
-import Commands.*;
-import Tools.DataBase;
-import Tools.HtmlParser;
+
+import Tools.TerminalEmulator;
 
 
 import java.io.IOException;
@@ -14,13 +13,19 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException {
-        DataBase mole = new DataBase();
-    new HtmlParser().html("/home/rafal/Dokumenty/intellij/IdeaProjects-20181219T161811Z-001/IdeaProjects/CourtJudgmentTerminal/src/main/resources/html",mole);
 
-    mole.load("/home/rafal/Dokumenty/intellij/IdeaProjects-20181219T161811Z-001/IdeaProjects/CourtJudgmentTerminal/src/main/resources/json");
-        System.out.println(new JudgeCaseCounter().howMany("Andrzej Cisek",mole));
-    System.out.println(new TopJudges().top10(mole));
-        System.out.println(new StatisticSentence().statistic(mole));
+
+  //  new HtmlParser().html("/home/rafal/Dokumenty/intellij/IdeaProjects-20181219T161811Z-001/IdeaProjects/CourtJudgmentTerminal/src/main/resources/html",mole);
+
+ //   mole.load("/home/rafal/Dokumenty/intellij/IdeaProjects-20181219T161811Z-001/IdeaProjects/CourtJudgmentTerminal/src/main/resources/json");
+
+         new TerminalEmulator().terminal();
+
+
+
+    //    System.out.println(new FindMore().searchForMore("III SA/Wa 1184/04,I SA/Wr 1297/02,VIII U 1022/13",mole));
+     //   System.out.println(new StatisticSentence().statistic(mole));
+
    //  System.out.println(new TopRegulations().topRegulation(mole));
 
        // new TerminalEmulator().terminal();

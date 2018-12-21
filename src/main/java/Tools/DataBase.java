@@ -18,10 +18,12 @@ public class DataBase {
         catalog = new File(path);
         String[] files = catalog.list();
         Gson gson = new Gson();
+        boolean isThereJson=false;
 
         for (String name : files) {
 
-
+            if(!name.contains(".json")) continue;
+            isThereJson=true;
             String filePath = this.catalog.getPath() + "/" + name;
 
                 loadedFiles.add(gson.fromJson(new FileReader(filePath), JudgeFile.class));
@@ -29,11 +31,11 @@ public class DataBase {
 
 
 
-            System.out.println(filePath);
+            System.out.println(name);
 
 
         }
-
+        if(!isThereJson)throw new FileNotFoundException();
     }
 
     public List<JudgeFile> getBase(){

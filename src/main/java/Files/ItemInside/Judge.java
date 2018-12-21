@@ -25,12 +25,12 @@ public class Judge {
                 specialRoles = REPORTING_JUDGE;
                 break;
             default:
-                specialRoles = null;
                 break;
         }
 
         if(specialRoles!=null){specialRolesList.add(specialRoles); this.specialRoles = specialRolesList;}
-        else this.specialRoles=null;
+        else this.specialRoles=specialRolesList;
+
 
 
     }
@@ -40,6 +40,7 @@ public class Judge {
     }
 
     public String getSpecialRoles() {
+
         if (this.specialRoles.size() != 0) return specialRoles.get(0).toString();
         else return null;
     }

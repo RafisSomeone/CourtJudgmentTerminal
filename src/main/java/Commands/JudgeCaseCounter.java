@@ -13,7 +13,7 @@ public class JudgeCaseCounter {
         {
             counter=counter+chosenOne.howMany(name);
         }
-        return name +" has taken part in " + counter + " judgments";
+        return "\n"+name +" has taken part in " + counter + " judgments";
 
 
 

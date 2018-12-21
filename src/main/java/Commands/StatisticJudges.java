@@ -26,7 +26,7 @@ public class StatisticJudges {
         {
             judgeNumbersSorted.add(judgeNumber);
         }
-        String outCome="Statistic on the number of judges:\nNumber of judges     Quantity      Percentage\n";
+        String outCome="\nStatistic on the number of judges:\nNumber of judges     Quantity      Percentage\n";
         for(JudgeNumber judgeNumber:judgeNumbersSorted)
         {outCome+=judgeNumber.getJudgeQuantity();
         if(judgeNumber.getJudgeQuantity()==0)for(int i=20;i>0;i--)outCome+=" ";

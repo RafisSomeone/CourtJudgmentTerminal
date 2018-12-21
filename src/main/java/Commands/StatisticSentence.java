@@ -34,7 +34,7 @@ public class StatisticSentence {
 
         }
 
-        String outCome ="Statistic of sentences: \nMonth       Quantity       Percentage  \n";
+        String outCome ="\nStatistic of sentences: \nMonth       Quantity       Percentage  \n";
         for(Month month : year)
         {
             outCome+=month.getMonth();

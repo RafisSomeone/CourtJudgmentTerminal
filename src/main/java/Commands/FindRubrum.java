@@ -15,7 +15,7 @@ public class FindRubrum {
             if (wanted != null) return wanted;
 
         }
-        throw new FileNotFoundException("Metryka " + Entry + " nie istnieje");
+        throw new FileNotFoundException("\nMetryka " + Entry + " nie istnieje");
     }
 
 

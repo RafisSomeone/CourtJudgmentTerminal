@@ -8,6 +8,7 @@ import org.jsoup.select.Elements;
 
 import javax.xml.crypto.Data;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
@@ -21,15 +22,17 @@ public class HtmlParser {
 
         File catalog = new File(path);
         String[] files = catalog.list();
-        System.out.println(path);
         List<Item> items = new LinkedList<>();
+        boolean isThereHTML=false;
         for (String name : files) {
 
 
 
             String filePath = catalog.getPath() + "/" + name;
 
-            System.out.println(filePath);
+            if(!name.contains(".html"))continue;
+            isThereHTML=true;
+            System.out.println(name);
             File file = new File(filePath);
 
             Document doc = Jsoup.parse(file, "UTF-8");
@@ -130,6 +133,7 @@ public class HtmlParser {
 
 
         }
+        if(!isThereHTML) throw new FileNotFoundException();
         base.addToBase(new JudgeFile(items));
     }
 

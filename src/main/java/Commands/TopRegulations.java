@@ -22,7 +22,7 @@ public class TopRegulations {
         for (Regulate regulation : regulations) {
             regulationsSorted.add(regulation);
         }
-        String outCome = "Top of the Regulations:\nNo    Quantity     Title\n";
+        String outCome = "\nTop of the Regulations:\nNo    Quantity     Title\n";
 
         int top = 10;
         int j = 1;

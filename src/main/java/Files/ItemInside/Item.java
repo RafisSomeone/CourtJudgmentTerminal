@@ -146,7 +146,7 @@ public class Item {
             {
                 if(court.getType().equals(courtType))court.increaseCounter();
             }
-            courts.get(5).increaseCounter();
+            courts.get(6).increaseCounter();
 
 
 

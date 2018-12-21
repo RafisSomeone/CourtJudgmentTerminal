@@ -25,7 +25,7 @@ public class TopJudges {
         }
 
 
-        String outCome = "Top "+ top + " of the most active judges: \n";
+        String outCome = "\nTop "+ top + " of the most active judges: \n";
         int i = 1;
         for (JudgeValue value : judgeValuesSorted) {
             outCome=outCome + i+ ". "+ value.getName()+ " " + value.getCoutner()+" jugments\n";

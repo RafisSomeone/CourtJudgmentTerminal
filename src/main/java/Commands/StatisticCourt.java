@@ -16,6 +16,7 @@ public class StatisticCourt {
     {
         List<Court> courts = new LinkedList<>();
         courts.add(new Court(CourtType.ADMINISTRATIVE,0));
+        courts.add(new Court(CourtType.SUPREMEADMINISTATIVE,0));
         courts.add(new Court(CourtType.COMMON,0));
         courts.add(new Court(CourtType.CONSTITUTIONAL_TRIBUNAL,0));
         courts.add(new Court(CourtType.NATIONAL_APPEAL_CHAMBER,0));
@@ -28,7 +29,7 @@ public class StatisticCourt {
 
         }
 
-        String outCome ="Statistic of courts: \nType of Court                   Quantity       Percentage  \n";
+        String outCome ="\nStatistic of courts: \nType of Court                   Quantity       Percentage  \n";
         for(Court court : courts)
         {
             outCome+=court.getType();
@@ -36,7 +37,7 @@ public class StatisticCourt {
             outCome+=court.getCounter();
             if(court.getCounter()==0)for(int i=15;i>0;i--)outCome+=" ";
             else {for (int i = 15 - (int) (Math.log10(court.getCounter()) ); i > 0; i--) outCome += " "; }
-            outCome+=Math.round((double) (court.getCounter()/ (double)courts.get(5).getCounter())*100)+"%\n";
+            outCome+=Math.round((double) (court.getCounter()/ (double)courts.get(6).getCounter())*100)+"%\n";
 
         }
         return outCome;

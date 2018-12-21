@@ -27,7 +27,7 @@ public class FindMore {
         String outCome = "";
        for (String wanted : rubrumToFind) {
 
-            outCome = outCome + new FindRubrum().searchFor(wanted,base) + "\n\n";
+            outCome = outCome + new FindRubrum().searchFor(wanted,base) + "\n";
 
         }
 

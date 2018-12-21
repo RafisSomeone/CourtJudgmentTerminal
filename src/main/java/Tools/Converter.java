@@ -26,7 +26,7 @@ public class Converter {
     }
 
     public String clean(String outCome) {
-        String cleanOutCome = "";
+        String cleanOutCome = "\n";
         int i = outCome.indexOf("UZASADNIENIE");
         while (outCome.length() > i) {
             if (outCome.charAt(i) != '<') cleanOutCome = cleanOutCome + outCome.charAt(i);
