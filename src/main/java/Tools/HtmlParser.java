@@ -32,25 +32,29 @@ public class HtmlParser {
             File file = new File(filePath);
 
             Document doc = Jsoup.parse(file, "UTF-8");
+
+            //CaseNumber
             Elements caseNumberHTML = doc.getElementsByClass("war_header");
-
-
             String caseNumberBuffer = caseNumberHTML.text();
             String caseNumber = caseNumberBuffer.substring(0, caseNumberBuffer.indexOf(" -"));
 
 
             Elements tableValues = doc.select("td.info-list-value");
+
+            //Date
             String judgmentDateBuffer = tableValues.get(0).text().substring(0, 10);
+
+            //CourtType
             String courtTypeBuffer = tableValues.get(2).text();
 
             CourtType type = null;
 
             if (courtTypeBuffer.contains("Wojewódzki Sąd Administracyjny")) type = CourtType.ADMINISTRATIVE;
             if (courtTypeBuffer.contains("Naczelny Sąd Administracyjny")) type = CourtType.SUPREMEADMINISTATIVE;
-
+            //Judges
             List<Judge> judgesList = new LinkedList<>();
             String judgesTable = tableValues.get(3).outerHtml();
-            System.out.println(judgesTable);
+
 
             String judgeName = "";
             String specialRoles = "";
@@ -58,7 +62,7 @@ public class HtmlParser {
                 if (judgesTable.charAt(i) == '<') {
                     if (!judgeName.equals("")) {
                         int nameLastIndex = judgeName.length() - 1;
-                        System.out.println(judgeName);
+
                         while (judgeName.charAt(nameLastIndex) == ' ') {    //cleaning the name
                             judgeName = judgeName.substring(0, nameLastIndex);
                             nameLastIndex = judgeName.length() - 1;
@@ -86,12 +90,23 @@ public class HtmlParser {
                 }
             }
 
+            //TextContent
+            Elements textContentHtml = doc.select("span.info-list-value-uzasadnienie");
+            Elements verses = textContentHtml.select("p");
+            String textContent="UZASADNIENIE\n";
+            for(Element oneVerse : verses)
+            {
+                textContent+=oneVerse.text()+'\n';
+            }
+
+
 
             Html newHtml = new HtmlBuilder()
                     .setCourtCases(caseNumber)
                     .setJudgmentDate(judgmentDateBuffer)
                     .setCourtType(type)
                     .setJudges(judgesList)
+                    .setTextContent(textContent)
                     .build();
 
 

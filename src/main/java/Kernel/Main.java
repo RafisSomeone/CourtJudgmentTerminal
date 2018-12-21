@@ -1,6 +1,7 @@
 package Kernel;
 
 
+import Commands.FindContent;
 import Commands.FindRubrum;
 import Commands.StatisticJudges;
 import Commands.TopJudges;
@@ -21,6 +22,7 @@ public class Main {
     DataBase mole = new DataBase();
     mole.load("/home/rafal/Dokumenty/intellij/IdeaProjects-20181219T161811Z-001/IdeaProjects/CourtJudgmentTerminal/src/main/resources/json");
         System.out.println(new FindRubrum().searchFor("XV Ca 543/14", mole));
+        System.out.println(new FindContent().searchForContent("XV Ca 543/14",mole));
     System.out.println(new TopJudges().top10(mole));
    //  System.out.println(new TopRegulations().topRegulation(mole));
 
