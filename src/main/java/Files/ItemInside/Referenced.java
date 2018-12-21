@@ -14,14 +14,14 @@ public class Referenced {
 
 public void topRegulation(List<Regulate> regulations)
 {
-    String signature=journalNo+"/"+journalYear;
+
 
     for(Regulate regulation:regulations)
     {
-        if(regulation.getSignature().equals(signature)){regulation.increaseCounter();return;}
+        if(regulation.getTitle().equals(journalTitle)){regulation.increaseCounter();return;}
 
     }
-    regulations.add(new Regulate(signature,1,journalTitle));
+    regulations.add(new Regulate(1,journalTitle));
 }
 
 

@@ -6,22 +6,25 @@ public enum CourtType {
     ADMINISTRATIVE,
     CONSTITUTIONAL_TRIBUNAL,
     NATIONAL_APPEAL_CHAMBER,
-    ALL;
+    ALL,
+    SUPREMEADMINISTATIVE;
 
     @Override
     public String toString() {
 
         switch (this) {
             case COMMON:
-                return  "Common Court";
+                return  "Sąd Powszechny";
             case SUPREME:
-                return  "Supreme Court";
+                return  "Sąd Najwyższy";
             case ADMINISTRATIVE:
-                return   "Administrative Court";
+                return   "Wojewódzki Sąd Administracyjny";
+            case SUPREMEADMINISTATIVE:
+                return "Naczelny Sąd Administracyjny";
             case CONSTITUTIONAL_TRIBUNAL:
-                return   "Constitutional Triblunal";
+                return   "Trybunał Konstytucyjny";
             case NATIONAL_APPEAL_CHAMBER:
-                return   "National Appeal Chamber";
+                return   "Krajowa Izba Odwoławcza";
             case ALL:
                 return "Total";
             default:

@@ -2,13 +2,8 @@ package Kernel;
 
 
 import Commands.StatisticJudges;
-import Commands.TopRegulations;
 import Tools.DataBase;
-import org.jline.reader.LineReader;
-import org.jline.reader.LineReaderBuilder;
-
-import org.jline.terminal.Terminal;
-import org.jline.terminal.TerminalBuilder;
+import Tools.HtmlParser;
 
 
 import java.io.IOException;
@@ -20,18 +15,18 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
+    new HtmlParser().html("/home/rafal/Dokumenty/intellij/IdeaProjects-20181219T161811Z-001/IdeaProjects/CourtJudgmentTerminal/src/main/resources/html");
+    DataBase mole = new DataBase();
+    mole.load("/home/rafal/Dokumenty/intellij/IdeaProjects-20181219T161811Z-001/IdeaProjects/CourtJudgmentTerminal/src/main/resources/json");
+        System.out.println(new StatisticJudges().statistic(mole));
+   //  System.out.println(new TopRegulations().topRegulation(mole));
 
-        DataBase mole = new DataBase();
-         mole.load("C:\\Users\\rafal\\IdeaProjects\\CourtJudgmentTerminal\\src\\main\\resources");
-         System.out.println(new StatisticJudges().statistic(mole));
-        System.out.println(new TopRegulations().topRegulation(mole));
-
-
+       // new TerminalEmulator().terminal();
 
 
         /*
       String prompt = "prompt> ";
-      Terminal terminal = TerminalBuilder.builder()
+      TerminalEmulator terminal = TerminalBuilder.builder()
               .system(true)
               .build();
 
@@ -56,7 +51,7 @@ String line ;
 
             String prompt = "prompt> ";
             String rightPrompt = null;
-           Terminal terminal = TerminalBuilder.builder()
+           TerminalEmulator terminal = TerminalBuilder.builder()
                     .system(true)
                     .build();
 

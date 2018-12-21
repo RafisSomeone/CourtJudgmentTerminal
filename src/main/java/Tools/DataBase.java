@@ -22,7 +22,7 @@ public class DataBase {
         for (String name : files) {
 
 
-            String filePath = this.catalog.getPath() + "\\" + name;
+            String filePath = this.catalog.getPath() + "/" + name;
 
                 loadedFiles.add(gson.fromJson(new FileReader(filePath), JudgeFile.class));
 
@@ -40,6 +40,10 @@ public class DataBase {
         return loadedFiles;
 
 
+    }
+    public void addToBase(JudgeFile judgeFile)
+    {
+        loadedFiles.add(judgeFile);
     }
 
 }

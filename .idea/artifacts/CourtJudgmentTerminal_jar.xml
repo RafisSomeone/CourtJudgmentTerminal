@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CourtJudgmentTerminal:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/CourtJudgmentTerminal_jar</output-path>
+    <root id="archive" name="CourtJudgmentTerminal.jar">
+      <element id="module-output" name="CourtJudgmentTerminal" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jsoup/jsoup/1.11.3/jsoup-1.11.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jline/jline/3.9.0/jline-3.9.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.8.5/gson-2.8.5.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
