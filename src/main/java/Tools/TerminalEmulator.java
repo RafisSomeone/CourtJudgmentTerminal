@@ -95,6 +95,7 @@ public class TerminalEmulator {
                         break;
                     case "help":
                         System.out.println(new Help().help());
+                        break;
                     case "judge":
                         System.out.println("You need to enter a name of judge");
                         break;
