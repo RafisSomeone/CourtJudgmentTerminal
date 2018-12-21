@@ -26,7 +26,7 @@ public class TerminalEmulator {
                 .build();
         DataBase mole = new DataBase();
 
-        /*
+
         boolean isJsonLoaded = false;
         while (!isJsonLoaded) {
             System.out.println("Enter the path to the directory with JSON files");
@@ -47,7 +47,7 @@ public class TerminalEmulator {
 
             }
 
-        }*/
+        }
 
        boolean isHtmlLoaded = false;
         while (!isHtmlLoaded) {
