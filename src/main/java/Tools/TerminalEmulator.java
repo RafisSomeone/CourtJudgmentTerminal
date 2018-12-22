@@ -133,7 +133,6 @@ public class TerminalEmulator {
                         break;
                     case "help":
                         outCome = new Help().help();
-                        write=true;
                         break;
                     case "judge":
                         outCome = "You need to enter a name of judge";
