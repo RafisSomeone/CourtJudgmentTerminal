@@ -10,6 +10,7 @@ import org.jline.terminal.TerminalBuilder;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class TerminalEmulator {
 
@@ -26,11 +27,11 @@ public class TerminalEmulator {
                 .build();
         DataBase mole = new DataBase();
 
-
+        String line;
         boolean isJsonLoaded = false;
         while (!isJsonLoaded) {
             System.out.println("Enter the path to the directory with JSON files");
-            String line = reader.readLine(prompt);
+            line = reader.readLine(prompt);
             try {
 
                 mole.load(line); ///home/rafal/Dokumenty/intellij/IdeaProjects-20181219T161811Z-001/IdeaProjects/CourtJudgmentTerminal/src/main/resources/json
@@ -49,10 +50,10 @@ public class TerminalEmulator {
 
         }
 
-       boolean isHtmlLoaded = false;
+        boolean isHtmlLoaded = false;
         while (!isHtmlLoaded) {
             System.out.println("Enter the path to the directory with HTML files");
-            String line = reader.readLine(prompt);
+            line = reader.readLine(prompt);
             try {
 
                 new HtmlParser().html(line, mole); ///home/rafal/Dokumenty/intellij/IdeaProjects-20181219T161811Z-001/IdeaProjects/CourtJudgmentTerminal/src/main/resources/html
@@ -67,46 +68,82 @@ public class TerminalEmulator {
 
             }
         }
+        boolean recordingClerk = false;
+        File clerk;
+        PrintWriter printer = null;
+        while (true) {
+            System.out.println("Do you want to use your personal recording clerk? [y/n]");
+            line = reader.readLine(prompt);
+            if (line.equals("y")) {
+                recordingClerk = true;
+                break;
+            }
+            if (line.equals("n")) break;
+            else System.out.println("You have to answer that question , please select \"y\" or \"n\" ");
+        }
 
+        if (recordingClerk) {
+            while (true) {
+                System.out.println("Enter the name of the file where your data will be written");
+                String name = reader.readLine(prompt);
+                System.out.println("Enter the path to the directory where your file "+name+" will be created");
+                try {
+                    String path = reader.readLine(prompt);
+                    clerk = new File(path + "/"+name+ ".txt");
+                    clerk.createNewFile();
+
+                    System.out.println(clerk.getPath());
+                    printer = new PrintWriter(clerk);
+                    break;
+                } catch (Exception ex) {
+                    System.out.println("Incorrect path");
+                }
+            }
+        }
 
         while (true) {
-            String line = null;
+
             try {
 
                 line = reader.readLine(prompt);
                 line = line.trim();
 
-
+                boolean write=false;
+                String outCome = null;
                 switch (line) {
                     case "judges":
-                        System.out.println(new TopJudges().top10(mole));
+                        outCome = new TopJudges().top10(mole);
+                        write=true;
                         break;
                     case "months":
-                        System.out.println(new StatisticSentence().statistic(mole));
+                        outCome = new StatisticSentence().statistic(mole);
+                        write=true;
                         break;
                     case "courts":
-                        System.out.println(new StatisticCourt().statistic(mole));
+                        outCome = new StatisticCourt().statistic(mole);
+                        write=true;
                         break;
                     case "regulations":
-                        System.out.println(new TopRegulations().topRegulation(mole));
+                        outCome = new TopRegulations().topRegulation(mole);
+                        write=true;
                         break;
                     case "jury":
-                        System.out.println(new StatisticJudges().statistic(mole));
+                        outCome = new StatisticJudges().statistic(mole);
+                        write=true;
                         break;
                     case "help":
-                        System.out.println(new Help().help());
+                        outCome = new Help().help();
+                        write=true;
                         break;
                     case "judge":
-                        System.out.println("You need to enter a name of judge");
+                        outCome = "You need to enter a name of judge";
                         break;
                     case "rubrum":
-                        System.out.println("You need to enter a signature of judgment");
+                        outCome = "You need to enter a signature of judgment";
                         break;
                     case "content":
-                        System.out.println("You need to enter a signature of judgment");
+                        outCome = "You need to enter a signature of judgment";
                         break;
-
-
                     default:
                         break;
                 }
@@ -114,24 +151,32 @@ public class TerminalEmulator {
                     if (line.substring(0, 6).equals("judge ")) {
                         String Entry = "";
                         for (int i = 6; i < line.length(); i++) Entry += line.charAt(i);
-                        System.out.println(new JudgeCaseCounter().howMany(Entry,mole));
+                        outCome=new JudgeCaseCounter().howMany(Entry, mole);
+                        write=true;
                     }
                 if (line.length() > 6)
                     if (line.substring(0, 7).equals("rubrum ")) {
                         String Entry = "";
                         for (int i = 7; i < line.length(); i++) Entry += line.charAt(i); //III SA/Wa 1184/04
-                        System.out.println();
-                        System.out.println(new FindMore().searchForMore(Entry, mole));
+
+                       outCome="\n"+new FindMore().searchForMore(Entry, mole);
+                        write=true;
                     }
 
                 if (line.length() > 7)
                     if (line.substring(0, 8).equals("content ")) {
                         String Entry = "";
                         for (int i = 8; i < line.length(); i++) Entry += line.charAt(i);
-                        System.out.println(new FindContent().searchForContent(Entry, mole));
+                        outCome=new FindContent().searchForContent(Entry, mole);
+                        write=true;
                     }
 
-
+                if (outCome != null) System.out.println(outCome);
+                if (recordingClerk && write) {
+                    printer.println("Command: "+line+"\n");
+                    printer.println("Out come:"+outCome);
+                    printer.flush();
+                }
             } catch (FileNotFoundException ex) {
                 System.out.println(ex.getMessage());
 
@@ -139,7 +184,6 @@ public class TerminalEmulator {
 
 
         }
-
 
     }
 
