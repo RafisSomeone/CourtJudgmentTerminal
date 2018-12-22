@@ -35,7 +35,7 @@ public class TopRegulations {
             for (int i = (20 - regulation.getTitle().length()); i > 0; i--) outCome += " ";
             outCome += regulation.getCounter();
             for(int i =13- (int) (Math.log10(regulation.getCounter()) + 1);i>0;i--) outCome+=" ";
-               outCome+=regulation.getTitle() + "\n"; // by poznać tytuł regulacji +regulation.getTitle()
+               outCome+=regulation.getTitle() + "\n";
             j++;
         }
 
